@@ -7,7 +7,6 @@ import BackButton from "~/features/kouki/common/back-button";
 export default function Settings() {
 	return (
 		<Stack>
-			<BackButton />
 			<SignOutButton />
 			<Suspense fallback={<div>Loading...</div>}>
 				<Session />

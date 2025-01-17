@@ -18,6 +18,8 @@ export default function HeaderTab() {
 				<Tabs.List>
 					<Tabs.Tab value="/kouki">All</Tabs.Tab>
 					<Tabs.Tab value="/kouki/follow">Follow</Tabs.Tab>
+					<Tabs.Tab value="/kouki/add">Add</Tabs.Tab>
+					<Tabs.Tab value="/kouki/settings">Settings</Tabs.Tab>
 				</Tabs.List>
 			</Tabs>
 		</Center>
