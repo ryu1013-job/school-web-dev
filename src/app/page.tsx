@@ -1,12 +1,10 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import { Button } from "@mantine/core";
+import Image from "next/image";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <Button>test</Button>
-        
-    </div>
-  );
+	return (
+		<div>
+			<Button>test</Button>
+		</div>
+	);
 }

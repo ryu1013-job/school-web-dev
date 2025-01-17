@@ -1,0 +1,6 @@
+.icon {
+  color: var(--mantine-color-black);
+  position: fixed;
+  top: 10;
+  right: 10;
+}
