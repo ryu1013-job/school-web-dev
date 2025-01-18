@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
 import { db } from "~/db/drizzle";
 import { posts } from "~/db/schema";
@@ -16,7 +17,7 @@ export async function addPost(params: {
 	});
 
 	if (!session) {
-		return;
+		redirect("/kouki/auth");
 	}
 
 	const userId = session.user.id;

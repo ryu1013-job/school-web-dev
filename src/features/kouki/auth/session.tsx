@@ -1,4 +1,5 @@
 import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import { auth } from "~/lib/auth";
 
 export default async function Session() {
@@ -6,7 +7,7 @@ export default async function Session() {
 		headers: await headers(),
 	});
 	if (!session) {
-		return <div>Not authenticated</div>;
+		redirect("/kouki/auth");
 	}
 	return <div>{JSON.stringify(session.user)}</div>;
 }
