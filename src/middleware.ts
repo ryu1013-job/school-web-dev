@@ -30,37 +30,37 @@ export async function middleware(request: NextRequest) {
     "/kouki/settings",
   ];
 
-  if (protectedPaths.includes(pathname)) {
-    const { data: session } = await betterFetch<Session>(
-      "/api/auth/get-session",
-      {
-        baseURL: request.nextUrl.origin,
-        headers: {
-          cookie: request.headers.get("cookie") || "",
-        },
-      }
-    );
+  // if (protectedPaths.includes(pathname)) {
+  //   const { data: session } = await betterFetch<Session>(
+  //     "/api/auth/get-session",
+  //     {
+  //       baseURL: request.nextUrl.origin,
+  //       headers: {
+  //         cookie: request.headers.get("cookie") || "",
+  //       },
+  //     }
+  //   );
 
-    if (!session) {
-      return NextResponse.redirect(new URL("/kouki/auth", request.url));
-    }
-  }
+  //   if (!session) {
+  //     return NextResponse.redirect(new URL("/kouki/auth", request.url));
+  //   }
+  // }
 
-  if (pathname === "/kouki/auth") {
-    const { data: session } = await betterFetch<Session>(
-      "/api/auth/get-session",
-      {
-        baseURL: request.nextUrl.origin,
-        headers: {
-          cookie: request.headers.get("cookie") || "",
-        },
-      }
-    );
+  // if (pathname === "/kouki/auth") {
+  //   const { data: session } = await betterFetch<Session>(
+  //     "/api/auth/get-session",
+  //     {
+  //       baseURL: request.nextUrl.origin,
+  //       headers: {
+  //         cookie: request.headers.get("cookie") || "",
+  //       },
+  //     }
+  //   );
 
-    if (session) {
-      return NextResponse.redirect(new URL("/kouki", request.url));
-    }
-  }
+  //   if (session) {
+  //     return NextResponse.redirect(new URL("/kouki", request.url));
+  //   }
+  // }
 
   return NextResponse.next();
 }

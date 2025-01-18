@@ -2,6 +2,7 @@
 
 import { and, desc, eq, sql } from "drizzle-orm";
 import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import { db } from "~/db/drizzle";
 import { follows, posts, user } from "~/db/schema";
 import { auth } from "~/lib/auth";
@@ -29,7 +30,7 @@ export async function getFollowedPosts() {
 	});
 
 	if (!session) {
-		return [];
+		redirect("/kouki/auth");
 	}
 
 	const loggedInUserId = session.user.id;
