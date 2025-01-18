@@ -92,7 +92,7 @@ export default function AddForm() {
 			setBase64Image(null);
 		} catch (error: unknown) {
 			console.error(error);
-			setAlertMessage(`An error occurred: ${error.message}`);
+			setAlertMessage("Failed to create the post");
 			setAlertColor("red");
 		} finally {
 			setLoading(false);
