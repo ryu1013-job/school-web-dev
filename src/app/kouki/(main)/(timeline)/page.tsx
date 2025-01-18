@@ -1,5 +1,10 @@
-import TimelineList from "~/features/kouki/timeline/list";
+import { Suspense } from "react";
+import { AllTimeLine } from "~/features/kouki/timeline";
 
-export default function Home() {
-	return <TimelineList />;
+export default function All() {
+	return (
+		<Suspense fallback="Loading...">
+			<AllTimeLine />
+		</Suspense>
+	);
 }

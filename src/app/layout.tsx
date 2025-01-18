@@ -4,6 +4,7 @@ import { Noto_Sans_JP } from "next/font/google";
 
 import "modern-css-reset/dist/reset.min.css";
 import "@mantine/core/styles.css";
+import "@mantine/dropzone/styles.css";
 
 const notoSansJp = Noto_Sans_JP({
 	subsets: ["latin"],

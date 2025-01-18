@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import AddForm from "~/features/kouki/add";
+import UserList from "~/features/kouki/users";
 
-export default function Add() {
+export default function Users() {
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
-			<AddForm />
+			<UserList />
 		</Suspense>
 	);
 }

@@ -41,6 +41,7 @@ export async function middleware(request: NextRequest) {
     "/kouki",
     "/kouki/follow",
     "/kouki/add",
+    "/kouki/users",
     "/kouki/settings",
   ];
  

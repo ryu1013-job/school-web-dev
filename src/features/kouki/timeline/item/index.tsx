@@ -1,22 +1,28 @@
-import { Avatar, Card, Flex, Image, Stack, Text } from "@mantine/core";
+import { Avatar, Card, Flex, Stack, Text } from "@mantine/core";
+import { getPostImage } from "../data";
+import type { TimelineItem as ItemType } from "../types";
 
-export default function TimelineItem() {
+export default async function TimelineItem({ item }: { item: ItemType }) {
+	const base64image = await getPostImage({ postId: item.postId });
+
 	return (
 		<Card shadow="sm" padding="lg" radius="md" withBorder w={300}>
 			<Stack gap="xs">
-				<Image
-					src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-6.png"
-					alt="Norway Fjord Adventures"
-					h={150}
-					w={300}
-				/>
-				<Text>Content</Text>
-				<Flex justify="space-between">
-					<Avatar
-						size="sm"
-						src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/avatar-1.jpg"
+				{item.imageUrl && (
+					<img src={item.imageUrl} alt="" height={150} width={300} />
+				)}
+				{base64image && (
+					<img
+						src={`data:image/jpeg;base64,${base64image}`}
+						alt=""
+						height={150}
+						width={300}
 					/>
-					<Text size="sm">2025/01/01</Text>
+				)}
+				<Text>{item.content}</Text>
+				<Flex justify="space-between">
+					<Avatar size="sm" src={item.profileImage} />
+					<Text size="sm">{item.createdAt?.toLocaleDateString()}</Text>
 				</Flex>
 			</Stack>
 		</Card>

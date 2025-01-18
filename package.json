@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@better-fetch/fetch": "^1.1.12",
+    "@faker-js/faker": "^9.4.0",
     "@heroicons/react": "^2.2.0",
     "@mantine/core": "^7.16.0",
+    "@mantine/dropzone": "^7.16.0",
     "@mantine/form": "^7.16.0",
     "@mantine/hooks": "^7.16.0",
     "@mantine/tiptap": "^7.16.0",
@@ -22,15 +24,19 @@
     "@tiptap/pm": "^2.11.2",
     "@tiptap/react": "^2.11.2",
     "@tiptap/starter-kit": "^2.11.2",
+    "add": "^2.0.6",
     "babel-plugin-react-compiler": "19.0.0-beta-e552027-20250112",
     "better-auth": "^1.1.14",
+    "browser-image-compression": "^2.0.2",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.38.4",
     "modern-css-reset": "^1.4.0",
     "next": "15.2.0-canary.13",
     "pg": "^8.13.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sharp": "^0.33.5",
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",

@@ -55,3 +55,25 @@ export const verification = pgTable("verification", {
 	createdAt: timestamp("created_at"),
 	updatedAt: timestamp("updated_at"),
 });
+
+export const follows = pgTable("follows", {
+	followerId: text("follower_id")
+		.notNull()
+		.references(() => user.id),
+	followeeId: text("followee_id")
+		.notNull()
+		.references(() => user.id),
+	createdAt: timestamp("created_at").defaultNow(),
+});
+
+export const posts = pgTable("posts", {
+	id: text("id").primaryKey(),
+	userId: text("user_id")
+		.notNull()
+		.references(() => user.id),
+	content: text("content"),
+	imageUrl: text("image_url"),
+	imageBase64: text("image_base64"), // S3使う想定だったが、IAMの権限がなく、授業資料見たらbase64で保存してた。
+	createdAt: timestamp("created_at").defaultNow(),
+	updatedAt: timestamp("updated_at").defaultNow(),
+});
