@@ -50,23 +50,23 @@ pnpm dev
 - 基本そのまま指示に従えばデプロイできますが、「ビルドの設定」で`preBuild`は以下のように設定する必要があります
   ```yml
   version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - npm install -g pnpm
-        - pnpm i
-    build:
-      commands:
-        - env | grep -e DATABASE_HOST -e DATABASE_PORT -e DATABASE_USER -e DATABASE_PASSWORD -e DATABASE_NAME -e BETTER_AUTH_SECRET -e BETTER_AUTH_URL -e GITHUB_CLIENT_ID -e GITHUB_CLIENT_SECRET >> .env.production
-        - env | grep -e NEXT_PUBLIC_ >> .env.production
-        - pnpm run build
-  artifacts:
-    baseDirectory: .next
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
-      - .next/cache/**/*
+  frontend:
+    phases:
+      preBuild:
+        commands:
+          - npm install -g pnpm
+          - pnpm i
+      build:
+        commands:
+          - env | grep -e DATABASE_HOST -e DATABASE_PORT -e DATABASE_USER -e DATABASE_PASSWORD -e DATABASE_NAME -e BETTER_AUTH_SECRET -e BETTER_AUTH_URL -e GITHUB_CLIENT_ID -e GITHUB_CLIENT_SECRET >> .env.production
+          - env | grep -e NEXT_PUBLIC_ >> .env.production
+          - pnpm run build
+    artifacts:
+      baseDirectory: .next
+      files:
+        - '**/*'
+    cache:
+      paths:
+        - node_modules/**/*
+        - .next/cache/**/*
   ```
