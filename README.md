@@ -4,7 +4,7 @@ https://school.ryu1013.com/zenki
 
 - DATABASE_URL
   - データベースのURL
-  - 例：mysql://user:password@database.xxx.us-east-1.rds.amazonaws.com:3306/database
+  - 例：`mysql://user:password@database.xxx.us-east-1.rds.amazonaws.com:3306/database`
 
 
 ## Development
