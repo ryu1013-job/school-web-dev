@@ -1,8 +1,4 @@
-import { betterFetch } from "@better-fetch/fetch";
-import { type NextRequest, NextResponse } from "next/server";
-import { auth } from "~/lib/auth";
-
-type Session = typeof auth.$Infer.Session;
+import { type NextRequest, NextResponse } from "next/server"
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -19,48 +15,11 @@ export async function middleware(request: NextRequest) {
   }
 
   if (pathname === "/") {
-    return NextResponse.redirect(new URL("/kouki", request.url));
+    return NextResponse.redirect(new URL("/zenki", request.url));
   }
-
-  const protectedPaths = [
-    "/kouki",
-    "/kouki/follow",
-    "/kouki/add",
-    "/kouki/users",
-    "/kouki/settings",
-  ];
-
-  // if (protectedPaths.includes(pathname)) {
-  //   const { data: session } = await betterFetch<Session>(
-  //     "/api/auth/get-session",
-  //     {
-  //       baseURL: request.nextUrl.origin,
-  //       headers: {
-  //         cookie: request.headers.get("cookie") || "",
-  //       },
-  //     }
-  //   );
-
-  //   if (!session) {
-  //     return NextResponse.redirect(new URL("/kouki/auth", request.url));
-  //   }
-  // }
-
-  // if (pathname === "/kouki/auth") {
-  //   const { data: session } = await betterFetch<Session>(
-  //     "/api/auth/get-session",
-  //     {
-  //       baseURL: request.nextUrl.origin,
-  //       headers: {
-  //         cookie: request.headers.get("cookie") || "",
-  //       },
-  //     }
-  //   );
-
-  //   if (session) {
-  //     return NextResponse.redirect(new URL("/kouki", request.url));
-  //   }
-  // }
+  if (pathname.startsWith("/kouki")) {
+    return NextResponse.redirect(new URL("/zenki", request.url));
+  }
 
   return NextResponse.next();
 }
