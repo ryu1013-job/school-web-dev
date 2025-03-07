@@ -1,4 +1,4 @@
-https://main.d19j5017lue2ck.amplifyapp.com/kouki
+https://school.ryu1013.com/zenki
 
 ## Environment
 
